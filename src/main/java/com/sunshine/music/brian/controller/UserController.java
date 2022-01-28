@@ -1,6 +1,6 @@
 package com.sunshine.music.brian.controller;
 
-import com.sunshine.music.brian.dao.service.UserDAOService;
+import com.sunshine.music.brian.service.UserService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
     @Resource
-    private UserDAOService userDAOService;
+    private UserService userService;
 
     @RequestMapping("/findByUsername")
     public Object findByUsername(@RequestParam String username) {
-        return userDAOService.findByUsername(username);
+        return userService.findByUsername(username);
     }
 }
