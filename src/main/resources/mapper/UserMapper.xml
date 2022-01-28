@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunshine.music.brian.dao.repository.UserMapper">
+    <resultMap id="baseMap" type="com.sunshine.music.brian.dao.entity.UserEntity">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="age" column="age" />
+        <result property="sex" column="sex" />
+    </resultMap>
+    <sql id="baseCols">
+        id, username, age, sex
+    </sql>
+    <select id="findByUsername" parameterType="java.lang.String" resultType="com.sunshine.music.brian.dao.entity.UserEntity">
+        select <include refid="baseCols" />
+        from user
+        where username = #{username}
+    </select>
+</mapper>
