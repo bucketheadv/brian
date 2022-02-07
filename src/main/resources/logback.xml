@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="true" scan="true" scanPrioid="1 seconds">
+    <property name="logPath" value="${user.home}/logs/brian" />
+    <logger name="com.sunshine.music.brian.dao.repository" level="DEBUG" />
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="UTF-8">
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-4level) %magenta(${PID:-}) %white(---) %green([%thread]) %-55(%cyan(%logger{30}:%L)) : %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${logPath}/info.%d{yyyyMMdd}.%i.gz</FileNamePattern>
+            <MaxHistory>7</MaxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <totalSizeCap>100KB</totalSizeCap>
+            <maxFileSize>20KB</maxFileSize>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>
+                {"time":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%level","pid":"${PID:- }","thread":"%thread","logger":"%logger{50}:%L","msg":"%msg"}%n
+            </pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${logPath}/error.%d{yyyyMMdd}.%i.gz</FileNamePattern>
+            <MaxHistory>7</MaxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <totalSizeCap>5GB</totalSizeCap>
+            <maxFileSize>500MB</maxFileSize>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>
+                {"time":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%level","pid":"${PID:- }","thread":"%thread","logger":"%logger{50}:%L","msg":"%msg"}%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="console" />
+        <appender-ref ref="FILE_INFO" />
+        <appender-ref ref="FILE_ERROR" />
+    </root>
+</configuration>

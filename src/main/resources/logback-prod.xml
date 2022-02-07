@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="false" scan="true" scanPrioid="1 seconds">
+    <!-- 配合debug=false关闭logback启动日志 -->
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    <contextName>logback</contextName>
+    <property name="logPath" value="${user.home}/logs/brian" />
+    <logger name="com.sunshine.music.brian.dao.repository" level="DEBUG" />
+
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${logPath}/info.%d{yyyyMMdd}.%i.gz</FileNamePattern>
+            <MaxHistory>7</MaxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <totalSizeCap>10GB</totalSizeCap>
+            <maxFileSize>500MB</maxFileSize>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>
+                {"time":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%level","pid":"${PID:- }","thread":"%thread","logger":"%logger{50}:%L","msg":"%msg"}%n
+            </pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${logPath}/error.%d{yyyyMMdd}.%i.gz</FileNamePattern>
+            <MaxHistory>7</MaxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <totalSizeCap>5GB</totalSizeCap>
+            <maxFileSize>500MB</maxFileSize>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>
+                {"time":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%level","pid":"${PID:- }","thread":"%thread","logger":"%logger{50}:%L","msg":"%msg"}%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="FILE_INFO" />
+        <appender-ref ref="FILE_ERROR" />
+    </root>
+</configuration>
