@@ -16,8 +16,8 @@
             <FileNamePattern>${logPath}/info.%d{yyyyMMdd}.%i.gz</FileNamePattern>
             <MaxHistory>7</MaxHistory>
             <cleanHistoryOnStart>true</cleanHistoryOnStart>
-            <totalSizeCap>100KB</totalSizeCap>
-            <maxFileSize>20KB</maxFileSize>
+            <totalSizeCap>5GB</totalSizeCap>
+            <maxFileSize>500MB</maxFileSize>
         </rollingPolicy>
         <encoder charset="UTF-8">
             <pattern>
