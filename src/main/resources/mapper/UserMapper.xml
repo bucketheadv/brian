@@ -9,11 +9,11 @@
         <result property="age" column="age" />
         <result property="sex" column="sex" />
     </resultMap>
-    <sql id="baseCols">
+    <sql id="Base_Column_List">
         id, username, age, sex
     </sql>
     <select id="findByUsername" parameterType="java.lang.String" resultType="com.sunshine.music.brian.dao.entity.UserEntity">
-        select <include refid="baseCols" />
+        select <include refid="Base_Column_List" />
         from user
         where username = #{username}
     </select>
