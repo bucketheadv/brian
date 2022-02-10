@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<configuration debug="false" scan="true" scanPrioid="1 seconds">
-    <!-- 配合debug=false关闭logback启动日志 -->
-    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
-    <contextName>logback</contextName>
+<configuration>
+    <contextName>brian</contextName>
     <property name="logPath" value="${user.home}/logs/brian" />
     <logger name="com.sunshine.music.brian.dao.repository" level="DEBUG" />
 
@@ -17,7 +15,7 @@
         </rollingPolicy>
         <encoder charset="UTF-8">
             <pattern>
-                {"time":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%level","pid":"${PID:- }","thread":"%thread","logger":"%logger{50}:%L","msg":"%msg"}%n
+                {"context":"%contextName","time":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%level","pid":"${PID:- }","thread":"%thread","logger":"%logger{50}:%L","msg":"%msg"}%n
             </pattern>
         </encoder>
     </appender>
@@ -37,7 +35,7 @@
         </rollingPolicy>
         <encoder charset="UTF-8">
             <pattern>
-                {"time":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%level","pid":"${PID:- }","thread":"%thread","logger":"%logger{50}:%L","msg":"%msg"}%n
+                {"context":"%contextName","time":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%level","pid":"${PID:- }","thread":"%thread","logger":"%logger{50}:%L","msg":"%msg"}%n
             </pattern>
         </encoder>
     </appender>

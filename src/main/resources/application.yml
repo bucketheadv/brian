@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: brian
+  profiles:
+    include: "redis"
+    active: dev
+
+mybatis-plus:
+  global-config:
+    banner: false
