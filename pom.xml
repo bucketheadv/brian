@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>com.github.bucketheadv</groupId>
 			<artifactId>winterframework</artifactId>
-			<version>v0.2.0</version>
+			<version>v0.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>redis.clients</groupId>
@@ -40,6 +40,14 @@
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>3.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
 
 		<dependency>

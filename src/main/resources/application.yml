@@ -2,9 +2,20 @@ spring:
   application:
     name: brian
   profiles:
-    include: "redis"
     active: dev
 
 mybatis-plus:
   global-config:
     banner: false
+
+management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,env,beans
+      base-path: /metrics
+  server:
+    port: 9080

@@ -2,6 +2,7 @@ package com.sunshine.music.brian.controller;
 
 import com.sunshine.music.brian.dao.entity.UserEntity;
 import com.sunshine.music.brian.service.UserService;
+import io.micrometer.core.annotation.Timed;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,7 @@ public class UserController {
         return response;
     }
 
+    @Timed
     @RequestMapping("/testErrorLog")
     public ApiResponse<?> testErrorLog() {
         log.error("TestFor Error: {}", "错误信息");
