@@ -3,7 +3,7 @@ package com.sunshine.music.brian.controller;
 import com.sunshine.music.brian.dao.entity.UserEntity;
 import com.sunshine.music.brian.service.UserService;
 import io.micrometer.core.annotation.Timed;
-import jakarta.annotation.Resource;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,10 +17,10 @@ import java.util.List;
  * Created on 2022/1/28 2:26 下午
  */
 @Slf4j
+@RequiredArgsConstructor
 @RestController
 public class UserController {
-    @Resource
-    private UserService userService;
+    private final UserService userService;
 
     @RequestMapping("/findByUsername")
     public ApiResponse<List<UserEntity>> findByUsername(@RequestParam String username) {
