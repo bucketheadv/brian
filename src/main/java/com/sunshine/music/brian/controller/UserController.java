@@ -5,6 +5,7 @@ import com.sunshine.music.brian.service.UserService;
 import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class UserController {
+    @Qualifier("userServiceImpl")
     private final UserService userService;
 
     @RequestMapping("/findByUsername")
