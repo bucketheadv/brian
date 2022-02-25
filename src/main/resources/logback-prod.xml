@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
     <contextName>brian</contextName>
-    <property name="logPath" value="${user.home}/logs/brian" />
+    <property name="log.path" value="${user.home}/logs/brian" />
     <logger name="com.sunshine.music.brian.dao.repository" level="DEBUG" />
 
     <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logPath}/info.log</file>
+        <file>${log.path}/info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <FileNamePattern>${logPath}/info.%d{yyyyMMdd}.%i.gz</FileNamePattern>
+            <FileNamePattern>${log.path}/info.%d{yyyyMMdd}.%i.gz</FileNamePattern>
             <MaxHistory>7</MaxHistory>
             <cleanHistoryOnStart>true</cleanHistoryOnStart>
             <totalSizeCap>10GB</totalSizeCap>
@@ -20,14 +20,14 @@
         </encoder>
     </appender>
     <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logPath}/error.log</file>
+        <file>${log.path}/error.log</file>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <FileNamePattern>${logPath}/error.%d{yyyyMMdd}.%i.gz</FileNamePattern>
+            <FileNamePattern>${log.path}/error.%d{yyyyMMdd}.%i.gz</FileNamePattern>
             <MaxHistory>7</MaxHistory>
             <cleanHistoryOnStart>true</cleanHistoryOnStart>
             <totalSizeCap>5GB</totalSizeCap>
