@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>com.github.bucketheadv</groupId>
 			<artifactId>winterframework</artifactId>
-			<version>v0.2.4</version>
+			<version>v0.2.8</version>
 		</dependency>
 		<dependency>
 			<groupId>redis.clients</groupId>
