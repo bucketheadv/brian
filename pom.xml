@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0-M1</version>
+		<groupId>com.github.bucketheadv</groupId>
+		<artifactId>winter-starter-parent</artifactId>
+		<version>0.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sunshine.music</groupId>
@@ -22,24 +22,16 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.github.bucketheadv</groupId>
-			<artifactId>winterframework</artifactId>
-			<version>v0.2.8</version>
-		</dependency>
-		<dependency>
-			<groupId>redis.clients</groupId>
-			<artifactId>jedis</artifactId>
-			<version>4.0.1</version>
+			<groupId>com.github.bucketheadv.winterframework</groupId>
+			<artifactId>winter-data-redis</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-			<version>3.5.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
