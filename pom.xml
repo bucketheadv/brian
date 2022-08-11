@@ -41,6 +41,16 @@
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.t-io</groupId>
+			<artifactId>tio-core</artifactId>
+			<version>3.8.1.v20220401-RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.t-io</groupId>
+			<artifactId>tio-websocket-server</artifactId>
+			<version>3.8.1.v20220401-RELEASE</version>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
